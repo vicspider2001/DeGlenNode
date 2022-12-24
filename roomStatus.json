@@ -1,0 +1,508 @@
+[
+    {
+        "roomNumbers": "101",
+        "roomStatus":"green",
+        "roomtypeName": "Executive Standard",
+        "fname":"",
+        "lname":"",
+        "status":"",
+        "_id":"101",
+        "BillStatus":"",
+        "refID":""
+        
+      
+    },
+    {
+        "roomNumbers": "206",
+        "roomStatus":"green",
+        "roomtypeName": "Executive Standard",
+        "fname":"",
+        "lname":"",
+        "status":"",
+        "_id":"206",
+        "BillStatus":"",
+        "refID":""
+        
+      
+    },
+    {
+       "roomNumbers": "205",
+       "roomStatus":"green",
+       "roomtypeName": "Standard",
+       "fname":"",
+        "lname":"",
+        "status":"",
+        "_id":"205",
+        "BillStatus":"",
+        "refID":""
+      
+    },
+    {
+       "roomNumbers": "305",
+       "roomStatus":"green",
+       "roomtypeName": "Standard",
+       "fname":"",
+        "lname":"",
+        "status":"",
+        "_id":"305",
+        "BillStatus":"",
+        "refID":""
+      
+    },
+    {
+        "roomNumbers": "306",
+        "roomStatus":"green",
+        "roomtypeName": "Standard",
+        "fname":"",
+        "lname":"",
+        "status":"",
+        "_id":"306",
+        "BillStatus":"",
+        "refID":""
+
+      
+    },
+    {
+        "roomNumbers": "101",
+        "roomStatus":"green",
+        "roomtypeName": "Executive Standard",
+        "fname":"",
+        "lname":"",
+        "status":"",
+        "_id":"101",
+        "BillStatus":"",
+        "refID":""
+      
+    },
+
+
+    {
+        "roomNumbers": "102",
+        "roomStatus":"green",
+        "roomtypeName": "Executive Standard",
+        "fname":"",
+        "lname":"",
+        "status":"",
+        "_id":"102",
+        "BillStatus":"",
+        "refID":""
+
+    },
+
+    {
+        "roomNumbers": "103",
+        "roomStatus":"green",
+        "roomtypeName": "Executive Standard",
+        "fname":"",
+        "lname":"",
+        "status":"",
+        "_id":"103",
+        "BillStatus":"",
+        "refID":""
+
+    },
+
+    {
+        "roomNumbers": "104",
+        "roomStatus":"green",
+        "roomtypeName": "Executive Standard",
+        "fname":"",
+        "lname":"",
+        "status":"",
+        "_id":"104",
+        "BillStatus":"",
+        "refID":""
+
+    },
+
+    {
+        "roomNumbers": "106",
+        "roomStatus":"green",
+        "roomtypeName": "Executive Standard",
+        "fname":"",
+        "lname":"",
+        "status":"",
+        "_id":"106",
+        "BillStatus":"",
+        "refID":""
+
+    },
+
+    {
+        "roomNumbers": "107",
+        "roomStatus":"green",
+        "roomtypeName": "Executive Standard",
+        "fname":"",
+        "lname":"",
+        "status":"",
+        "_id":"107",
+        "BillStatus":"",
+        "refID":""
+
+    },
+
+    {
+        "roomNumbers": "108",
+        "roomStatus":"green",
+        "roomtypeName": "Executive Standard",
+        "fname":"",
+        "lname":"",
+        "status":"",
+        "_id":"108",
+        "BillStatus":"",
+        "refID":""
+
+    },
+
+    {
+        "roomNumbers": "201",
+        "roomStatus":"green",
+        "roomtypeName": "Executive Standard",
+        "fname":"",
+        "lname":"",
+        "status":"",
+        "_id":"201",
+        "BillStatus":"",
+        "refID":""
+
+    },
+
+    {
+        "roomNumbers": "202",
+        "roomStatus":"green",
+        "roomtypeName": "Executive Standard",
+        "fname":"",
+        "lname":"",
+        "status":"",
+        "_id":"202",
+        "BillStatus":"",
+        "refID":""
+
+    },
+
+    {
+        "roomNumbers": "203",
+        "roomStatus":"green",
+        "roomtypeName": "Executive Standard",
+        "fname":"",
+        "lname":"",
+        "status":"",
+        "_id":"203",
+        "BillStatus":"",
+        "refID":""
+
+    },
+
+    {
+        "roomNumbers": "204",
+        "roomStatus":"green",
+        "roomtypeName": "Executive Standard",
+        "fname":"",
+        "lname":"",
+        "status":"",
+        "_id":"204",
+        "BillStatus":"",
+        "refID":""
+
+    },
+
+    {
+        "roomNumbers": "206",
+        "roomStatus":"green",
+        "roomtypeName": "Executive Standard",
+        "fname":"",
+        "lname":"",
+        "status":"",
+        "_id":"206",
+        "BillStatus":"",
+        "refID":""
+
+    },
+
+    {
+        "roomNumbers": "207",
+        "roomStatus":"green",
+        "roomtypeName": "Executive Standard",
+        "fname":"",
+        "lname":"",
+        "status":"",
+        "_id":"207",
+        "BillStatus":"",
+        "refID":""
+
+    },
+
+    {
+        "roomNumbers": "210",
+        "roomStatus":"green",
+        "roomtypeName": "Executive Standard",
+        "fname":"",
+        "lname":"",
+        "status":"",
+        "_id":"210",
+        "BillStatus":"",
+        "refID":""
+
+    },
+
+    {
+        "roomNumbers": "211",
+        "roomStatus":"green",
+        "roomtypeName": "Executive Standard",
+        "fname":"",
+        "lname":"",
+        "status":"",
+        "_id":"211",
+        "BillStatus":"",
+        "refID":""
+
+    },
+
+    {
+        "roomNumbers": "212",
+        "roomStatus":"green",
+        "roomtypeName": "Executive Standard",
+        "fname":"",
+        "lname":"",
+        "status":"",
+        "_id":"212",
+        "BillStatus":"",
+        "refID":""
+
+    },
+
+    {
+        "roomNumbers": "213",
+        "roomStatus":"green",
+        "roomtypeName": "Executive Standard",
+        "fname":"",
+        "lname":"",
+        "status":"",
+        "_id":"213",
+        "BillStatus":"",
+        "refID":""
+
+    },
+
+    {
+        "roomNumbers": "301",
+        "roomStatus":"green",
+        "roomtypeName": "Executive Standard",
+        "fname":"",
+        "lname":"",
+        "status":"",
+        "_id":"301",
+        "BillStatus":"",
+        "refID":""
+
+    },
+
+    {
+        "roomNumbers": "302",
+        "roomStatus":"green",
+        "roomtypeName": "Executive Standard",
+        "fname":"",
+        "lname":"",
+        "status":"",
+        "_id":"302",
+        "BillStatus":"",
+        "refID":""
+
+    },
+
+    {
+        "roomNumbers": "303",
+        "roomStatus":"green",
+        "roomtypeName": "Executive Standard",
+        "fname":"",
+        "lname":"",
+        "status":"",
+        "_id":"303",
+        "BillStatus":"",
+        "refID":""
+
+    },
+
+    {
+        "roomNumbers": "304",
+        "roomStatus":"green",
+        "roomtypeName": "Executive Standard",
+        "fname":"",
+        "lname":"",
+        "status":"",
+        "_id":"304",
+        "BillStatus":"",
+        "refID":""
+
+    },
+
+    {
+        "roomNumbers": "307",
+        "roomStatus":"green",
+        "roomtypeName": "Executive Standard",
+        "fname":"",
+        "lname":"",
+        "status":"",
+        "_id":"307",
+        "BillStatus":"",
+        "refID":""
+
+    },
+
+    {
+        "roomNumbers": "310",
+        "roomStatus":"green",
+        "roomtypeName": "Executive Standard",
+        "fname":"",
+        "lname":"",
+        "status":"",
+        "_id":"310",
+        "BillStatus":"",
+        "refID":""
+
+    },
+
+    {
+        "roomNumbers": "311",
+        "roomStatus":"green",
+        "roomtypeName": "Executive Standard",
+        "fname":"",
+        "lname":"",
+        "status":"",
+        "_id":"311",
+        "BillStatus":"",
+        "refID":""
+
+    },
+
+    {
+        "roomNumbers": "312",
+        "roomStatus":"green",
+        "roomtypeName": "Executive Standard",
+        "fname":"",
+        "lname":"",
+        "status":"",
+        "_id":"312",
+        "BillStatus":"",
+        "refID":""
+
+    },
+
+    {
+        "roomNumbers": "313",
+        "roomStatus":"green",
+        "roomtypeName": "Executive Standard",
+        "fname":"",
+        "lname":"",
+        "status":"",
+        "_id":"313",
+        "BillStatus":"",
+        "refID":""
+
+    },
+
+    {
+        "roomNumbers": "208",
+        "roomStatus":"green",
+        "roomtypeName": "Majestic Suite",
+        "fname":"",
+        "lname":"",
+        "status":"",
+        "_id":"208",
+        "BillStatus":"",
+        "refID":""
+
+    },
+
+    {
+        "roomNumbers": "209",
+        "roomStatus":"green",
+        "roomtypeName": "Majestic Suite",
+        "fname":"",
+        "lname":"",
+        "status":"",
+        "_id":"209",
+        "BillStatus":"",
+        "refID":""
+
+    },
+
+    {
+        "roomNumbers": "308",
+        "roomStatus":"green",
+        "roomtypeName": "Majestic Suite",
+        "fname":"",
+        "lname":"",
+        "status":"",
+        "_id":"308",
+        "BillStatus":"",
+        "refID":""
+
+    },
+
+    {
+        "roomNumbers": "309",
+        "roomStatus":"green",
+        "roomtypeName": "Majestic Suite",
+        "fname":"",
+        "lname":"",
+        "status":"",
+        "_id":"309",
+        "BillStatus":"",
+        "refID":""
+
+    },
+
+    {
+        "roomNumbers": "401",
+        "roomStatus":"green",
+        "roomtypeName": "Diplomatic",
+        "fname":"",
+        "lname":"",
+        "status":"",
+        "_id":"401",
+        "BillStatus":"",
+        "refID":""
+
+    },
+
+    {
+        "roomNumbers": "402",
+        "roomStatus":"green",
+        "roomtypeName": "Diplomatic",
+        "fname":"",
+        "lname":"",
+        "status":"",
+        "_id":"402",
+        "BillStatus":"",
+        "refID":""
+
+    },
+
+    {
+        "roomNumbers": "403",
+        "roomStatus":"green",
+        "roomtypeName": "Diplomatic",
+        "fname":"",
+        "lname":"",
+        "status":"",
+        "_id":"403",
+        "BillStatus":"",
+        "refID":""
+
+    },
+
+    {
+        "roomNumbers": "404",
+        "roomStatus":"green",
+        "roomtypeName": "Diplomatic",
+        "fname":"",
+        "lname":"",
+        "status":"",
+        "_id":"404",
+        "BillStatus":"",
+        "refID":""
+
+    }
+
+]
