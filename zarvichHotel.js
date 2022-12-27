@@ -4607,7 +4607,7 @@ zarvich.delete('/delstockOut/:id',(req,res)=>{
 
 MongoClient.connect(MongoUrl, (err,client) => {
     if(err) console.log("error while connecting");
-    db = client.db('ZarvichHOTEL');
+    db = client.db('zarvichHotel');
     zarvich.listen(port, '0.0.0.0',()=>{
         console.log(`listening on port ${port}`)
     })

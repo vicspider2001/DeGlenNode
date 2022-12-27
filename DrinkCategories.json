@@ -1,7 +1,7 @@
 [
     {
         "mealTypeID":1,
-        "mealType":"Soft Drinks"
+        "mealType":"Cream"
     },
     
     {
@@ -19,7 +19,7 @@
     
     {
         "mealTypeID":4,
-        "mealType":"Non Alcoholic Wine"
+        "mealType":"Apparetive"
         
     },
     
@@ -32,7 +32,7 @@
    
     {
         "mealTypeID":6,
-        "mealType":"Red Wine"
+        "mealType":"Wine"
         
     },
     {
@@ -42,7 +42,13 @@
     },
     {
         "mealTypeID":8,
-        "mealType":"Irish Cream Drinks"
+        "mealType":"Juice"
+        
+    },
+
+    {
+        "mealTypeID":9,
+        "mealType":"Cognac"
         
     }
     

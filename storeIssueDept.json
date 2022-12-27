@@ -40,11 +40,23 @@
         "departmentID":"20009",
         "departmentName":"Central Store"
      
-    },
+    }
 
     {
         "departmentID":"20010",
+        "departmentName":"Club"
+     
+    },
+
+    {
+        "departmentID":"20011",
         "departmentName":"Maintenance Office"
+     
+    },
+
+    {
+        "departmentID":"20012",
+        "departmentName":"PoolBar"
      
     }
 
