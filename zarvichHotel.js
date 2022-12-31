@@ -1494,6 +1494,14 @@ zarvich.post('/barCredit',(req,res)=>{
 	})
 })
 
+zarvich.post('/poolCredit',(req,res)=>{
+	console.log(req.body);
+	db.collection('poolCredit').insertOne(req.body,(err,result)=>{
+		if(err) throw err;
+		res.send("Check in Complete")
+	})
+})
+
 // return Restaurant Postings
 zarvich.get('/restaurantSales', (req,res)=> {
     var query = {};
@@ -1538,9 +1546,11 @@ else if(req.query.RCstaff){
 zarvich.get('/barCreditSales', (req,res)=> {
     var query = {};
     console.log(req.query.id)
-    if(req.query.id){
-        query={_id:(req.query.id)}
-    }
+
+//return all Credit
+if(req.query.id){
+    query={_id:(req.query.id)}
+}
 // return all Bar Credits wrt user
 else if(req.query.BCstaff){
     var BCstaff = (req.query.BCstaff)
@@ -1553,6 +1563,28 @@ else if(req.query.BCstaff){
         res.send(result)
     })
 })
+
+// return Bar Credits Postings
+zarvich.get('/poolCreditSales', (req,res)=> {
+    var query = {};
+    console.log(req.query.id)
+    
+//return all Credit
+if(req.query.id){
+    query={_id:(req.query.id)}
+}
+// return all Bar Credits wrt user
+else if(req.query.PCstaff){
+    var PCstaff = (req.query.PCstaff)
+    query={user:(PCstaff)}
+}
+    
+    db.collection('poolCredit').find(query).toArray((err,result) => {
+        if(err) throw err;
+        res.send(result)
+    })
+})
+
 
 // return hotel address
 zarvich.get('/hoteladdress', (req,res)=> {
@@ -1589,7 +1621,7 @@ zarvich.get('/poolbarSales', (req,res)=> {
 // return all poolbar wrt user
 else if(req.query.Pstaff){
     var Pstaff = (req.query.Pstaff)
-    query={user:(req.query.Pstaff)}
+    query={user:(Pstaff)}
 }
 
     db.collection('poolbarData').find(query).toArray((err,result) => {
@@ -1876,6 +1908,26 @@ zarvich.post('/postRWarehouse',(req,res)=>{
 		if(err) throw err;
 		res.send("Check in Complete")
 	})
+})
+
+zarvich.get('/findOtherSales', (req,res)=> {
+    var query = {};
+    console.log(req.query.id)
+    if(req.query.id){
+        query={_id:(req.query.id)}
+    }
+   
+    else if(req.query.others12 && req.query.Othrstartdate12 && req.query.OthrendDate12){
+        var others12 = (req.query.others12)
+        var Othrstartdate12 = (req.query.Othrstartdate12)
+        var OthrendDate12 = (req.query.OthrendDate12)
+        query={'department':(others12), date:{$gte:(Othrstartdate12), $lte:(OthrendDate12)}}
+    }
+    
+    db.collection('revenueWarehouse').find(query).toArray((err,result) => {
+        if(err) throw err;
+        res.send(result)
+    })
 })
 
 // return otherSales Postings
