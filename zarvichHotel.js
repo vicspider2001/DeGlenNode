@@ -1668,6 +1668,25 @@ else if(req.query.Pstaff){
     })
 })
 
+// return poolBar Postings
+zarvich.get('/clubSales', (req,res)=> {
+    var query = {};
+    console.log(req.query.id)
+    if(req.query.id){
+        query={_id:(req.query.id)}
+    }
+// return all poolbar wrt user
+else if(req.query.Cstaff){
+    var Cstaff = (req.query.Cstaff)
+    query={user:(Cstaff)}
+}
+
+    db.collection('clubData').find(query).toArray((err,result) => {
+        if(err) throw err;
+        res.send(result)
+    })
+})
+
 //////////////////////////
 
 // return PoolBar Tables
@@ -2636,6 +2655,15 @@ zarvich.delete('/delpoolUser/:id',(req,res)=>{
     })
 })
 
+zarvich.delete('/delclubUser/:id',(req,res)=>{
+    var id = req.params.id
+    db.collection('clubUser').deleteMany(
+        {refID:id},(err,result)=>{
+        if(err) throw err;
+        res.send(result)
+    })
+})
+
 //Edit User
 zarvich.put('/editPoolUser/:id',(req,res)=>{
     console.log(req.params.id);
@@ -2657,10 +2685,38 @@ zarvich.put('/editPoolUser/:id',(req,res)=>{
   
 })
 
+zarvich.put('/editClubUser/:id',(req,res)=>{
+    console.log(req.params.id);
+    var id = (req.params.id)
+    db.collection('clubUser').updateOne(
+        {refID:id},
+        {
+            $set: {
+                name:req.body.name,
+                username:req.body.username,
+                password:req.body.password,
+                department:req.body.department,
+                    
+            }
+        },
+        
+    )
+    res.send('data updated')      
+  
+})
+
 // Add Pool User Data
 zarvich.post('/pooluser',(req,res)=>{
 	console.log(req.body);
 	db.collection('poolUser').insertOne(req.body,(err,result)=>{
+		if(err) throw err;
+		res.send("Check in Complete")
+	})
+})
+
+zarvich.post('/ClubUsers',(req,res)=>{
+	console.log(req.body);
+	db.collection('clubUser').insertOne(req.body,(err,result)=>{
 		if(err) throw err;
 		res.send("Check in Complete")
 	})
@@ -3163,10 +3219,27 @@ zarvich.post('/retirepoolBar',(req,res)=>{
 	})
 })
 
+// Add sales to poolbarWarehouse
+zarvich.post('/retireClub',(req,res)=>{
+	console.log(req.body);
+	db.collection('clubWarehouse').insert(req.body,(err,result)=>{
+		if(err) throw err;
+		res.send("Bar Sales Retired")
+	})
+})
 // Add sales to poolbarTemp
 zarvich.post('/TemppoolBar',(req,res)=>{
 	console.log(req.body);
 	db.collection('poolbarTemp').insert(req.body,(err,result)=>{
+		if(err) throw err;
+		res.send("Bar Sales Retired")
+	})
+})
+
+// Add sales to poolbarTemp
+zarvich.post('/Tempclub',(req,res)=>{
+	console.log(req.body);
+	db.collection('clubTempData').insert(req.body,(err,result)=>{
 		if(err) throw err;
 		res.send("Bar Sales Retired")
 	})
@@ -3282,6 +3355,19 @@ zarvich.get('/GetpoolBarTemp', (req,res)=> {
     })
 })
 
+zarvich.get('/GetclubTemp', (req,res)=> {
+    var query = {};
+    console.log(req.query.id)
+    if(req.query.id){
+        query={_id:(req.query.id)}
+    }
+
+    db.collection('clubTempData').find(query).toArray((err,result) => {
+        if(err) throw err;
+        res.send(result)
+    })
+})
+
 //delete from poolbarData
 
 zarvich.delete('/delpoolBar/:id',(req,res)=>{
@@ -3293,10 +3379,27 @@ zarvich.delete('/delpoolBar/:id',(req,res)=>{
     })
 })
 
+zarvich.delete('/delClub/:id',(req,res)=>{
+    var id = req.params.id
+    db.collection('clubData').deleteMany(
+        {user:id},(err,result)=>{
+        if(err) throw err;
+        res.send(result)
+    })
+})
+
 //delete from poolTemp
 
 zarvich.delete('/delpoolBarTemp',(req,res)=>{
     db.collection('poolbarTemp').remove({},(err,result) => {
+        if(err) throw err;
+        res.send(result)
+    })
+    
+})
+
+zarvich.delete('/delclubTemp',(req,res)=>{
+    db.collection('clubTempData').remove({},(err,result) => {
         if(err) throw err;
         res.send(result)
     })
@@ -3510,6 +3613,14 @@ zarvich.post('/add',(req,res)=>{
 })
 //Bulk Add
 zarvich.post('/addMany',(req,res)=>{
+	console.log(req.body);
+	db.collection('dailySales').insert(req.body,(err,result)=>{
+		if(err) throw err;
+		res.send("Bar Sales Retired")
+	})
+})
+
+zarvich.post('/addManyClub',(req,res)=>{
 	console.log(req.body);
 	db.collection('dailySales').insert(req.body,(err,result)=>{
 		if(err) throw err;
