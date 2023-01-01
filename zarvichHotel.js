@@ -1494,6 +1494,14 @@ zarvich.post('/barCredit',(req,res)=>{
 	})
 })
 
+zarvich.post('/clubCredit',(req,res)=>{
+	console.log(req.body);
+	db.collection('clubCredit').insertOne(req.body,(err,result)=>{
+		if(err) throw err;
+		res.send("Check in Complete")
+	})
+})
+
 zarvich.post('/poolCredit',(req,res)=>{
 	console.log(req.body);
 	db.collection('poolCredit').insertOne(req.body,(err,result)=>{
@@ -1585,6 +1593,26 @@ else if(req.query.PCstaff){
     })
 })
 
+// return Bar Credits Postings
+zarvich.get('/clubCreditSales', (req,res)=> {
+    var query = {};
+    console.log(req.query.id)
+    
+//return all Credit
+if(req.query.id){
+    query={_id:(req.query.id)}
+}
+// return all Bar Credits wrt user
+else if(req.query.Clstaff){
+    var Clstaff = (req.query.Clstaff)
+    query={user:(Clstaff)}
+}
+    
+    db.collection('clubCredit').find(query).toArray((err,result) => {
+        if(err) throw err;
+        res.send(result)
+    })
+})
 
 // return hotel address
 zarvich.get('/hoteladdress', (req,res)=> {
@@ -1611,6 +1639,16 @@ zarvich.post('/poolbar',(req,res)=>{
 		res.send("Check in Complete")
 	})
 })
+
+// Perform PoolBar Postings
+zarvich.post('/club',(req,res)=>{
+	console.log(req.body);
+	db.collection('clubData').insertOne(req.body,(err,result)=>{
+		if(err) throw err;
+		res.send("Check in Complete")
+	})
+})
+
 // return poolBar Postings
 zarvich.get('/poolbarSales', (req,res)=> {
     var query = {};
@@ -1646,6 +1684,25 @@ else if(req.query.tableID){
 }
 
     db.collection('poolbarTables').find(query).toArray((err,result) => {
+        if(err) throw err;
+        res.send(result)
+    })
+})
+
+// return PoolBar Tables
+zarvich.get('/getclubTables', (req,res)=> {
+    var query = {};
+    console.log(req.query.id)
+    if(req.query.id){
+        query={_id:(req.query.id)}
+    }
+// return all Bar Tables ID 
+else if(req.query.tableID){
+    var tableID = (req.query.tableID)
+    query={tableNum:(tableID)}
+}
+
+    db.collection('clubTables').find(query).toArray((err,result) => {
         if(err) throw err;
         res.send(result)
     })
@@ -1772,6 +1829,28 @@ zarvich.put('/poolbarTablePost/:id',(req,res)=>{
 	console.log(req.params.id);
     var id = (req.params.id)
 	db.collection('poolbarTables').update(
+        {"_id":id},
+        {
+            $set: {
+                    selected:req.body.selected,
+                    billCost:req.body.billCost,
+                    tableNum:req.body.tableNum,
+                    user:req.body.user
+
+                    
+            }
+        },
+        
+    )
+		res.send("Check in Complete")
+
+})
+
+// post into club Tables
+zarvich.put('/clubTablePost/:id',(req,res)=>{
+	console.log(req.params.id);
+    var id = (req.params.id)
+	db.collection('clubTables').update(
         {"_id":id},
         {
             $set: {
@@ -2612,6 +2691,36 @@ zarvich.get('/poolUserInfo', (req,res)=> {
     }
     
     db.collection('poolUser').find(query).toArray((err,result) => {
+        if(err) throw err;
+        res.send(result)
+    })
+})
+
+//get poolbar User
+zarvich.get('/clubUserInfo', (req,res)=> {
+    var query = {};
+    console.log(req.query.id)
+    if(req.query.id){
+        query={_id:(req.query.id)}
+    }
+
+//return pool username
+    else if(req.query.clubuserName){
+        var clubuserName = (req.query.clubuserName)
+        query={'username':(clubuserName)}
+    }
+//return pool password
+    else if(req.query.clubcode){
+        var clubcode = (req.query.clubcode)
+        query={'password':(clubcode)}
+    }
+
+    else if(req.query.clubrefcode){
+        var clubrefcode = (req.query.clubrefcode)
+        query={'password':(clubrefcode)}
+    }
+    
+    db.collection('clubUser').find(query).toArray((err,result) => {
         if(err) throw err;
         res.send(result)
     })
@@ -4456,6 +4565,18 @@ zarvich.post('/postPoolBarSalesQty',(req,res)=>{
 	
 })
 
+//Post stockOut to PoolBarStore 
+zarvich.post('/postClubSalesQty',(req,res)=>{
+	console.log(req.body);
+   
+    db.collection('ClubSalesQty').insertOne(req.body,(err,result)=>{
+        if(err) throw err;
+        res.send("new vendor created")
+    })
+    
+	
+})
+
 
 //get stock from BarStore
 zarvich.get('/getBarSalesQty', (req,res)=> {
@@ -4537,6 +4658,32 @@ zarvich.get('/getPoolBarSalesQty', (req,res)=> {
     })
 })
 
+//get stock from PoolBarStore
+zarvich.get('/getClubSalesQty', (req,res)=> {
+    var query = {};
+    console.log(req.query.id)
+    if(req.query.id){
+        query={_id:(req.query.id)}
+    }
+
+    else if(req.query.clubprodNmeQ){
+        var clubprodNmeQ = (req.query.clubprodNmeQ)
+        query={'productName':(clubprodNmeQ)}
+    }
+
+    else if(req.query.useDate&&req.query.useshift&&req.query.userstaff){
+        var useDate = (req.query.useDate)
+        var useshift = (req.query.useshift)
+        var userstaff = (req.query.userstaff)
+        query = {'tranDate':(req.query.useDate), 'shift':(req.query.useshift), 'user':(req.query.userstaff)}
+    }
+    
+    db.collection('PoolBarSalesQty').find(query).toArray((err,result) => {
+        if(err) throw err;
+        res.send(result)
+    })
+})
+
 
 //Post stockOut to PoolBarStore 
 zarvich.post('/PoolBarSend',(req,res)=>{
@@ -4590,6 +4737,25 @@ zarvich.get('/getPoolBarStore2', (req,res)=> {
     }
     
     db.collection('PoolBarStore').find(query).toArray((err,result) => {
+        if(err) throw err;
+        res.send(result)
+    })
+})
+
+//get stock from PoolBarStore
+zarvich.get('/getClubStore', (req,res)=> {
+    var query = {};
+    console.log(req.query.id)
+    if(req.query.id){
+        query={_id:(req.query.id)}
+    }
+    
+    else if(req.query.clubprodNme2){
+        var clubprodNme2 = (req.query.clubprodNme2)
+        query={'productName':(clubprodNme2)}
+    }
+    
+    db.collection('clubStore').find(query).toArray((err,result) => {
         if(err) throw err;
         res.send(result)
     })
