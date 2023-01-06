@@ -3275,6 +3275,35 @@ zarvich.get('/findPoolSalesNow', (req,res)=> {
     })
 })
 
+zarvich.get('/findClubSalesNow', (req,res)=> {
+    var query = {};
+    console.log(req.query.id)
+    if(req.query.id){
+        query={_id:(req.query.id)}
+    }
+
+    else if(req.query.clubNowDep83&&req.query.clubstartdate83&&req.query.clubendDate83&&req.query.clubshiftNow83){
+        var clubNowDep83 = (req.query.clubNowDep83)
+        var clubstartdate83 = (req.query.clubstartdate83)
+        var clubendDate83 = (req.query.clubendDate83)
+        var clubshiftNow83 = (req.query.clubshiftNow83)
+        query={'department':(clubNowDep83), date:{$gte:(clubstartdate83), $lte:(clubendDate83)},'shift':(clubshiftNow83)}
+    }
+
+    else if(req.query.clubNowDep84&&req.query.clubstartdate84&&req.query.clubendDate84){
+        var clubNowDep84 = (req.query.clubNowDep84)
+        var clubstartdate84 = (req.query.clubstartdate84)
+        var clubendDate84 = (req.query.clubendDate84)
+        query={'department':(clubNowDep84), date:{$gte:(clubstartdate84), $lte:(clubendDate84)}}
+    }   
+    
+    
+    db.collection('clubWarehouse').find(query).toArray((err,result) => {
+        if(err) throw err;
+        res.send(result)
+    })
+})
+
 
 //////////////////////
 
@@ -4800,6 +4829,14 @@ zarvich.get('/getClubSalesQty', (req,res)=> {
 zarvich.post('/PoolBarSend',(req,res)=>{
 	console.log(req.body);
 	db.collection('PoolBarStore').insertOne(req.body,(err,result)=>{
+		if(err) throw err;
+		res.send("new vendor created")
+	})
+})
+
+zarvich.post('/ClubSend',(req,res)=>{
+	console.log(req.body);
+	db.collection('clubStore').insertOne(req.body,(err,result)=>{
 		if(err) throw err;
 		res.send("new vendor created")
 	})
