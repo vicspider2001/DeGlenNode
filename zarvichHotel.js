@@ -354,7 +354,7 @@ zarvich.delete('/delDockets/:id',(req,res)=>{
 zarvich.delete('/delBooking2/:id',(req,res)=>{
     var id = req.params.id
     db.collection('grcharges').deleteOne(
-        {refID:id},(err,result)=>{
+        {'refID':id},(err,result)=>{
         if(err) throw err;
         res.send(result)
     })
@@ -364,7 +364,7 @@ zarvich.delete('/delBooking2/:id',(req,res)=>{
 zarvich.delete('/delBooking3/:id',(req,res)=>{
     var id = req.params.id
     db.collection('roomRateCharges').deleteOne(
-        {refID:id},(err,result)=>{
+        {'refID':id},(err,result)=>{
         if(err) throw err;
         res.send(result)
     })
