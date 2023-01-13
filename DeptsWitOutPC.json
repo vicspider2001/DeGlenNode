@@ -1,0 +1,33 @@
+[
+    {
+        "DeptID":"1",
+        "DeptName":"Laundry"
+        
+    },
+
+    {
+        "DeptID":"2",
+        "DeptName":"Gymnasium"
+    },
+    {
+        "DeptID":"3",
+        "DeptName":"Smoothie"
+    },
+    {
+        "DeptID":"4",
+        "DeptName":"MiniMart"
+    },
+    {
+        "DeptID":"5",
+        "DeptName":"Barbeque"
+    },
+    {
+        "DeptID":"6",
+        "DeptName":"Shisha"
+    },
+    {
+        "DeptID":"7",
+        "DeptName":"HallHire"
+    }
+    
+]
