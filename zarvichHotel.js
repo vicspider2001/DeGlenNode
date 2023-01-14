@@ -353,7 +353,7 @@ zarvich.delete('/delDockets/:id',(req,res)=>{
 //delete from roomcharges1
 zarvich.delete('/delBooking2/:id',(req,res)=>{
     var id = req.params.id
-    db.collection('grcharges').deleteMany(
+    db.collection('grcharges').deleteOne(
         {'refID':id},(err,result)=>{
         if(err) throw err;
         res.send(result)
@@ -363,7 +363,7 @@ zarvich.delete('/delBooking2/:id',(req,res)=>{
 //delete from roomcharges2
 zarvich.delete('/delBooking3/:id',(req,res)=>{
     var id = req.params.id
-    db.collection('roomRateCharges').deleteMany(
+    db.collection('roomRateCharges').deleteOne(
         {'refID':id},(err,result)=>{
         if(err) throw err;
         res.send(result)
@@ -1038,20 +1038,6 @@ zarvich.get('/org', (req,res)=> {
     }
     
     db.collection('organisations').find(query).toArray((err,result) => {
-        if(err) throw err;
-        res.send(result)
-    })
-})
-
-//get organisations
-zarvich.get('/DeptWitOutPC', (req,res)=> {
-    var query = {};
-    console.log(req.query.id)
-    if(req.query.id){
-        query={DeptName:(req.query.id)}
-    }
-        
-    db.collection('DeptsWitOutPC').find(query).toArray((err,result) => {
         if(err) throw err;
         res.send(result)
     })
@@ -4181,7 +4167,7 @@ zarvich.get('/issueDepts', (req,res)=> {
         query={departmentID:(req.query.deptID)}
     }
 
-    db.collection('storeIssueDept').find(query).toArray((err,result) => {
+    db.collection('storeIssueDepts').find(query).toArray((err,result) => {
         if(err) throw err;
         res.send(result)
     })

@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node zarvichHotel.js",
-    "dev": "pm2 start zarvichHotel.js --watch",
+    "dev": "pm2 start zarvichHotel.js",
     "stop": "pm2 stop zarvichHotel.js",
     "nodeM": "nodemon zarvichHotel.js"
   },
