@@ -38,7 +38,7 @@ zarvich.get('/rooms', (req,res)=> {
 //return roomtypes wrt roomType_Id
     else if (req.query.details){
         var details=(req.query.details)
-        query={'roomNumbers':(req.query.details)}
+        query={'roomNumbers':(details)}
     }
 
 //return roomrates wrt room Num
@@ -949,8 +949,7 @@ zarvich.put('/rmstatus2/:id',(req,res)=>{
         {'roomNumbers':id},
         {
             $set: {
-                    
-                
+                                    
                 status:req.body.status,
                 roomtypeName:req.body.roomtypeName,
                 fname:req.body.fname,
@@ -1999,6 +1998,62 @@ zarvich.post('/otherSales',(req,res)=>{
 	})
 })
 
+zarvich.post('/laundrySales',(req,res)=>{
+	console.log(req.body);
+	db.collection('LaundrySales').insertOne(req.body,(err,result)=>{
+		if(err) throw err;
+		res.send("Check in Complete")
+	})
+})
+
+zarvich.post('/GymnasiumSales',(req,res)=>{
+	console.log(req.body);
+	db.collection('GymnasiumSales').insertOne(req.body,(err,result)=>{
+		if(err) throw err;
+		res.send("Check in Complete")
+	})
+})
+
+zarvich.post('/SmoothiesSales',(req,res)=>{
+	console.log(req.body);
+	db.collection('SmoothieSales').insertOne(req.body,(err,result)=>{
+		if(err) throw err;
+		res.send("Check in Complete")
+	})
+})
+
+zarvich.post('/HallHireSales',(req,res)=>{
+	console.log(req.body);
+	db.collection('HallHireSales').insertOne(req.body,(err,result)=>{
+		if(err) throw err;
+		res.send("Check in Complete")
+	})
+})
+
+zarvich.post('/ShishaSales',(req,res)=>{
+	console.log(req.body);
+	db.collection('ShishaSales').insertOne(req.body,(err,result)=>{
+		if(err) throw err;
+		res.send("Check in Complete")
+	})
+})
+
+zarvich.post('/BbqSales',(req,res)=>{
+	console.log(req.body);
+	db.collection('BarbequeSales').insertOne(req.body,(err,result)=>{
+		if(err) throw err;
+		res.send("Check in Complete")
+	})
+})
+
+zarvich.post('/MiniMartSales',(req,res)=>{
+	console.log(req.body);
+	db.collection('MiniMartSales').insertOne(req.body,(err,result)=>{
+		if(err) throw err;
+		res.send("Check in Complete")
+	})
+})
+
 // post otherSales into revenueWarehouse
 zarvich.post('/postRWarehouse',(req,res)=>{
 	console.log(req.body);
@@ -2023,6 +2078,146 @@ zarvich.get('/findOtherSales', (req,res)=> {
     }
     
     db.collection('revenueWarehouse').find(query).toArray((err,result) => {
+        if(err) throw err;
+        res.send(result)
+    })
+})
+
+zarvich.get('/findLaundrySales', (req,res)=> {
+    var query = {};
+    console.log(req.query.id)
+    if(req.query.id){
+        query={_id:(req.query.id)}
+    }
+   
+    else if(req.query.laundry12 && req.query.Laundrystartdate12 && req.query.LaundryendDate12){
+        var laundry12 = (req.query.laundry12)
+        var Laundrystartdate12 = (req.query.Laundrystartdate12)
+        var LaundryendDate12 = (req.query.LaundryendDate12)
+        query={'department':(laundry12), date:{$gte:(Laundrystartdate12), $lte:(LaundryendDate12)}}
+    }
+    
+    db.collection('LaundrySales').find(query).toArray((err,result) => {
+        if(err) throw err;
+        res.send(result)
+    })
+})
+
+zarvich.get('/findGymSales', (req,res)=> {
+    var query = {};
+    console.log(req.query.id)
+    if(req.query.id){
+        query={_id:(req.query.id)}
+    }
+   
+    else if(req.query.gym12 && req.query.gymstartdate12 && req.query.gymendDate12){
+        var gym12 = (req.query.gym12)
+        var gymstartdate12 = (req.query.gymstartdate12)
+        var gymendDate12 = (req.query.gymendDate12)
+        query={'department':(gym12), date:{$gte:(gymstartdate12), $lte:(gymendDate12)}}
+    }
+    
+    db.collection('GymnasiumSales').find(query).toArray((err,result) => {
+        if(err) throw err;
+        res.send(result)
+    })
+})
+
+zarvich.get('/findSmoothieSales', (req,res)=> {
+    var query = {};
+    console.log(req.query.id)
+    if(req.query.id){
+        query={_id:(req.query.id)}
+    }
+   
+    else if(req.query.smoot12 && req.query.smoostartdate12 && req.query.smooendDate12){
+        var smoot12 = (req.query.smoot12)
+        var smoostartdate12 = (req.query.smoostartdate12)
+        var smooendDate12 = (req.query.smooendDate12)
+        query={'department':(smoot12), date:{$gte:(smoostartdate12), $lte:(smooendDate12)}}
+    }
+    
+    db.collection('SmoothieSales').find(query).toArray((err,result) => {
+        if(err) throw err;
+        res.send(result)
+    })
+})
+
+zarvich.get('/findMiniMartSales', (req,res)=> {
+    var query = {};
+    console.log(req.query.id)
+    if(req.query.id){
+        query={_id:(req.query.id)}
+    }
+   
+    else if(req.query.mart12 && req.query.martstartdate12 && req.query.martendDate12){
+        var mart12 = (req.query.mart12)
+        var martstartdate12 = (req.query.martstartdate12)
+        var martendDate12 = (req.query.martendDate12)
+        query={'department':(mart12), date:{$gte:(martstartdate12), $lte:(martendDate12)}}
+    }
+    
+    db.collection('MiniMartSales').find(query).toArray((err,result) => {
+        if(err) throw err;
+        res.send(result)
+    })
+})
+
+zarvich.get('/findBbqSales', (req,res)=> {
+    var query = {};
+    console.log(req.query.id)
+    if(req.query.id){
+        query={_id:(req.query.id)}
+    }
+   
+    else if(req.query.bbq12 && req.query.bbqstartdate12 && req.query.bbqendDate12){
+        var bbq12 = (req.query.bbq12)
+        var bbqstartdate12 = (req.query.bbqstartdate12)
+        var bbqendDate12 = (req.query.bbqendDate12)
+        query={'department':(bbq12), date:{$gte:(bbqstartdate12), $lte:(bbqendDate12)}}
+    }
+    
+    db.collection('BarbequeSales').find(query).toArray((err,result) => {
+        if(err) throw err;
+        res.send(result)
+    })
+})
+
+zarvich.get('/findShiSales', (req,res)=> {
+    var query = {};
+    console.log(req.query.id)
+    if(req.query.id){
+        query={_id:(req.query.id)}
+    }
+   
+    else if(req.query.shi12 && req.query.shistartdate12 && req.query.shiendDate12){
+        var shi12 = (req.query.shi12)
+        var shistartdate12 = (req.query.shistartdate12)
+        var shiendDate12 = (req.query.shiendDate12)
+        query={'department':(shi12), date:{$gte:(shistartdate12), $lte:(shiendDate12)}}
+    }
+    
+    db.collection('ShishaSales').find(query).toArray((err,result) => {
+        if(err) throw err;
+        res.send(result)
+    })
+})
+
+zarvich.get('/findHallSales', (req,res)=> {
+    var query = {};
+    console.log(req.query.id)
+    if(req.query.id){
+        query={_id:(req.query.id)}
+    }
+   
+    else if(req.query.hall12 && req.query.hallstartdate12 && req.query.hallendDate12){
+        var hall12 = (req.query.hall12)
+        var hallstartdate12 = (req.query.hallstartdate12)
+        var hallendDate12 = (req.query.hallendDate12)
+        query={'department':(hall12), date:{$gte:(hallstartdate12), $lte:(hallendDate12)}}
+    }
+    
+    db.collection('HallHireSales').find(query).toArray((err,result) => {
         if(err) throw err;
         res.send(result)
     })
@@ -3810,6 +4005,60 @@ zarvich.get('/salesReport', (req,res)=> {
         var otherSales = (req.query.otherSales)
         var othertoday = (req.query.othertoday)
         query={'department':(otherSales),'date':(othertoday)}
+    }
+
+    else if(req.query.poolSales&&req.query.pooltoday){
+        var poolSales = (req.query.poolSales)
+        var othertoday = (req.query.pooltoday)
+        query={'department':(poolSales),'date':(pooltoday)}
+    }
+
+    else if(req.query.clubSales&&req.query.clubtoday){
+        var clubSales = (req.query.clubSales)
+        var clubtoday = (req.query.clubtoday)
+        query={'department':(clubSales),'date':(clubtoday)}
+    }
+
+    else if(req.query.LaundrySales&&req.query.laundrytoday){
+        var LaundrySales = (req.query.LaundrySales)
+        var laundrytoday = (req.query.laundrytoday)
+        query={'department':(LaundrySales),'date':(laundrytoday)}
+    }
+
+    else if(req.query.GymNSales&&req.query.gymntoday){
+        var GymNSales = (req.query.GymNSales)
+        var gymntoday = (req.query.gymntoday)
+        query={'department':(GymNSales),'date':(gymntoday)}
+    }
+
+    else if(req.query.smoothiSales&&req.query.smoothietoday){
+        var smoothiSales = (req.query.smoothiSales)
+        var smoothietoday = (req.query.smoothietoday)
+        query={'department':(smoothiSales),'date':(smoothietoday)}
+    }
+
+    else if(req.query.minimartSales&&req.query.marttoday){
+        var minimartSales = (req.query.minimartSales)
+        var marttoday = (req.query.marttoday)
+        query={'department':(minimartSales),'date':(marttoday)}
+    }
+
+    else if(req.query.BarbeQueSales&&req.query.bbqtoday){
+        var BarbeQueSales = (req.query.BarbeQueSales)
+        var bbqtoday = (req.query.bbqtoday)
+        query={'department':(BarbeQueSales),'date':(bbqtoday)}
+    }
+
+    else if(req.query.shishaSales&&req.query.shishatoday){
+        var shishaSales = (req.query.shishaSales)
+        var shishatoday = (req.query.shishatoday)
+        query={'department':(shishaSales),'date':(shishatoday)}
+    }
+
+    else if(req.query.HHSales&&req.query.hhiretoday){
+        var HHSales = (req.query.HHSales)
+        var hhiretoday = (req.query.hhiretoday)
+        query={'department':(HHSales),'date':(hhiretoday)}
     }
 
     else if(req.query.accDepositReceptn&&req.query.today){
