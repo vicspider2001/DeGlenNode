@@ -53,6 +53,15 @@ zarvich.get('/rooms', (req,res)=> {
     })
 })
 
+zarvich.get('/DeptWitOutPC', (req,res)=> {
+    var query = {};
+        
+  db.collection('DeptsWitOutPC').find(query).toArray((err,result) => {
+        if(err) throw err;
+        res.send(result)
+    })
+})
+
 // Create a Room
 zarvich.post('/createRoom',(req,res)=>{
 	console.log(req.body);
@@ -1998,13 +2007,6 @@ zarvich.post('/otherSales',(req,res)=>{
 	})
 })
 
-zarvich.post('/laundrySales',(req,res)=>{
-	console.log(req.body);
-	db.collection('LaundrySales').insertOne(req.body,(err,result)=>{
-		if(err) throw err;
-		res.send("Check in Complete")
-	})
-})
 
 zarvich.post('/GymnasiumSales',(req,res)=>{
 	console.log(req.body);
@@ -2097,7 +2099,7 @@ zarvich.get('/findLaundrySales', (req,res)=> {
         query={'department':(laundry12), date:{$gte:(Laundrystartdate12), $lte:(LaundryendDate12)}}
     }
     
-    db.collection('LaundrySales').find(query).toArray((err,result) => {
+    db.collection('laundrySales').find(query).toArray((err,result) => {
         if(err) throw err;
         res.send(result)
     })
@@ -3835,6 +3837,14 @@ zarvich.post('/add',(req,res)=>{
 		res.send("Bar Sales Retired")
 	})
 })
+
+zarvich.post('/postLaundry',(req,res)=>{
+	console.log(req.body);
+	db.collection('laundrySales').insertOne(req.body,(err,result)=>{
+		if(err) throw err;
+		res.send("Bar Sales Retired")
+	})
+})
 //Bulk Add
 zarvich.post('/addMany',(req,res)=>{
 	console.log(req.body);
@@ -3963,7 +3973,7 @@ zarvich.get('/getfoodanddrinks', (req,res)=> {
         res.send(result)
     })
 
-})
+PC})
 
 
 
@@ -4025,10 +4035,10 @@ zarvich.get('/salesReport', (req,res)=> {
         query={'department':(LaundrySales),'date':(laundrytoday)}
     }
 
-    else if(req.query.GymNSales&&req.query.gymntoday){
-        var GymNSales = (req.query.GymNSales)
-        var gymntoday = (req.query.gymntoday)
-        query={'department':(GymNSales),'date':(gymntoday)}
+    else if(req.query.gymnasiumSNow&&req.query.gymnasiumtoday){
+        var gymnasiumSNow = (req.query.gymnasiumSNow)
+        var gymnasiumtoday = (req.query.gymnasiumtoday)
+        query={'department':(gymnasiumSNow),'date':(gymnasiumtoday)}
     }
 
     else if(req.query.smoothiSales&&req.query.smoothietoday){
@@ -4167,7 +4177,7 @@ zarvich.get('/issueDepts', (req,res)=> {
         query={departmentID:(req.query.deptID)}
     }
 
-    db.collection('storeIssueDepts').find(query).toArray((err,result) => {
+    db.collection('storeIssueDept').find(query).toArray((err,result) => {
         if(err) throw err;
         res.send(result)
     })
