@@ -277,7 +277,7 @@ zarvich.get('/checkedout', (req,res)=> {
     }
     else if(req.query.chkoutdate){
         var chkoutdate = (req.query.chkoutdate)
-        query={departureDate:(chkoutdate)}
+        query={departureDate:ISODate(req.query.chkoutdate)}
     }
     else if(req.query.findPastGuest){
         var findPastGuest = (req.query.findPastGuest)
