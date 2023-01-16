@@ -4266,7 +4266,7 @@ zarvich.post('/newRoom',(req,res)=>{
 //Post new issue Dept
 zarvich.post('/newDept',(req,res)=>{
 	console.log(req.body);
-	db.collection('storeIssueDepts').insertOne(req.body,(err,result)=>{
+	db.collection('storeIssueDept').insertOne(req.body,(err,result)=>{
 		if(err) throw err;
 		res.send("new dept created")
 	})
