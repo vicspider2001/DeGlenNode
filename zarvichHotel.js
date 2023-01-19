@@ -5092,7 +5092,7 @@ zarvich.get('/getPoolBarSalesQty', (req,res)=> {
 })
 
 //get stock from PoolBarStore
-zarvich.get('/getClubSalesQty', (req,res)=> {
+zarvich.get('/getClubSalesQtyNew', (req,res)=> {
     var query = {};
     console.log(req.query.id)
     if(req.query.id){
@@ -5111,7 +5111,7 @@ zarvich.get('/getClubSalesQty', (req,res)=> {
         query = {'tranDate':(req.query.useDate), 'shift':(req.query.useshift), 'user':(req.query.userstaff)}
     }
     
-    db.collection('PoolBarSalesQty').find(query).toArray((err,result) => {
+    db.collection('ClubSalesQty').find(query).toArray((err,result) => {
         if(err) throw err;
         res.send(result)
     })
@@ -5263,6 +5263,7 @@ zarvich.delete('/delstockOut/:id',(req,res)=>{
         res.send(result)
     })
 })
+
 
 MongoClient.connect(MongoUrl, (err,client) => {
     if(err) console.log("error while connecting");
