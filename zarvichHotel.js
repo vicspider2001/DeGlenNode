@@ -2167,7 +2167,7 @@ zarvich.get('/findSwimmingSales', (req,res)=> {
         query={'department':(swim12), date:{$gte:(swimstartdate12), $lte:(swimendDate12)}}
     }
     
-    db.collection('SSales').find(query).toArray((err,result) => {
+    db.collection('SwimmingSales').find(query).toArray((err,result) => {
         if(err) throw err;
         res.send(result)
     })
