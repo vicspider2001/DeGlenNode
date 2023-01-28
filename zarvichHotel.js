@@ -300,6 +300,14 @@ zarvich.post('/bookNow',(req,res)=>{
 	})
 })
 
+zarvich.post('/postOccuppancy',(req,res)=>{
+	console.log(req.body);
+	db.collection('checkinWarehouse').insertOne(req.body,(err,result)=>{
+		if(err) throw err;
+		res.send("Check in Complete")
+	})
+})
+
 // post Bill of a guest in Checkin Database
 zarvich.post('/bill',(req,res)=>{
 	console.log(req.body);
@@ -4112,6 +4120,25 @@ zarvich.get('/salesReport', (req,res)=> {
     }
 
     db.collection('dailySales').find(query).toArray((err,result) => {
+        if(err) throw err;
+        res.send(result)
+    })
+
+})
+
+zarvich.get('/getDailyOccuppancy', (req,res)=> {
+    var query = {};
+    console.log(req.query.id)
+    if(req.query.id){
+        query={_id:(req.query.id)}
+    }
+
+    else if(req.query.occuppancyToday){
+       var occuppancyToday = (req.query.occuppancyToday)
+        query={'OccuppancyDate':(occuppancyToday)}
+    }
+
+    db.collection('checkinWarehouse').find(query).toArray((err,result) => {
         if(err) throw err;
         res.send(result)
     })
